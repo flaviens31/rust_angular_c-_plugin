@@ -1,0 +1,43 @@
+<mat-toolbar color="primary">
+  <span>{{ title }}</span>
+</mat-toolbar>
+
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>Addition</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <mat-form-field appearance="fill">
+        <mat-label>A</mat-label>
+        <input matInput type="number" [(ngModel)]="a" name="a" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>B</mat-label>
+        <input matInput type="number" [(ngModel)]="b" name="b" />
+      </mat-form-field>
+
+      <div>
+        <button mat-raised-button color="primary" (click)="addNumbers()">
+          Add
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions *ngIf="result !== null">
+    <h2>Result: {{ result }}</h2>
+  </mat-card-actions>
+</mat-card>
+<mat-card class="card">
+  <div *ngIf="dataModel">
+    <h2>Data Model</h2>
+    <p>ID: {{ dataModel.id }}</p>
+    <p>Name: {{ dataModel.name }}</p>
+  </div>
+
+  <div *ngIf="!dataModel">
+    <p>Loading...</p>
+  </div>
+</mat-card>
